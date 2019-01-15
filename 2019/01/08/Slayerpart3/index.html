@@ -31,24 +31,26 @@ Powered by Hydejack v6.6.1 <https://qwtel.com/hydejack/>
 
 
 
-  <title>Hyde &middot; Bart Timmer</title>
+  <title>Slaying the Top 2000 Part 3: reCAPTCHA &middot; Bart Timmer</title>
 
 
 
-<meta name="description" content="Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content. It’s based on Poole, the Jekyll butler. Open _featured_tags/hyde.md to edit this text.
+<meta name="description" content="
+All hope is lost.
+
 ">
 
 
 
 
-<link rel="canonical" href="https://denzilly.github.io/tag/hyde/">
+<link rel="canonical" href="https://denzilly.github.io/2019/01/08/Slayerpart3/">
 
 <link rel="alternate" type="application/atom+xml" title="Bart Timmer Feed" href="https://denzilly.github.io/feed.xml">
 
 
+  <link rel="prev" href="https://denzilly.github.io/2018/12/22/Slayerpart2/">
 
 
-  <link rel="next" href="https://denzilly.github.io/tag/hydejack/">
 
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -108,7 +110,7 @@ Powered by Hydejack v6.6.1 <https://qwtel.com/hydejack/>
 <!-- NOTE: These styles interact with JavsScript, so they MUST NOT be changed -->
 <style id="_pageStyle">
 
-.content a{color:#268bd2;border-color:rgba(38,139,210,0.2)}.content a:hover{border-color:#268bd2}:focus{outline-color:#268bd2}::selection{color:#fff;background:#268bd2}::-moz-selection{color:#fff;background:#268bd2}
+.content a{color:#4f86aa;border-color:rgba(79,134,170,0.2)}.content a:hover{border-color:#4f86aa}:focus{outline-color:#4f86aa}::selection{color:#fff;background:#4f86aa}::-moz-selection{color:#fff;background:#4f86aa}
 
 </style>
 
@@ -158,25 +160,253 @@ Powered by Hydejack v6.6.1 <https://qwtel.com/hydejack/>
 
 <div id="_yPushState">
   <div class="fade-in">
-    <main id="_main" class="content" role="main" data-color="#268bd2" data-image="data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+    <main id="_main" class="content" role="main" data-color="#4f86aa" data-image="/assets/img/nap.png">
+      
+
+<article id="post-2019/01/08/Slayerpart3" class="post" role="article">
+  <header>
+    <h1 class="post-title">
+      
+        Slaying the Top 2000 Part 3: reCAPTCHA
+      
+    </h1>
+
+    <p class="post-date heading">
+      <time datetime="2019-01-08T00:00:00+01:00">08 Jan 2019</time>
       
 
 
 
-  <header>
-    <h1 class="page-title">Hyde</h1>
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+on <span>Programming</span>, <span>Music</span>
+
+    </p>
+
     
-  
-  
-<p class="message">Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content. It’s based on Poole, the Jekyll butler. Open <code class="highlighter-rouge">_featured_tags/hyde.md</code> to edit this text.</p>
-
-
+  <div class="hr" style="padding-bottom:0"></div>
 
 
   </header>
-  <hr class="sr-only"/>
+
+  
+    <p align="middle"><img src="https://i.imgur.com/z3iEySE.jpg" alt="RIP" /></p>
+<p style="color:gray; font-size: 80%; text-align: center;"><em>All hope is lost.</em></p>
+
+<p>Unfortunately, this is where the project came to an end. Google’s secret weapon was too much to handle, an insurmountable obstacle. Crafted in the heart of mount Fuji by evil samurai programmers, reCAPTCHA is actually a pretty neat piece of technology, and more advanced than you would think. This post will cover a little bit of how CAPTCHA works, as well as a possible workaround.</p>
+
+<p>The most modern iteration of CAPTCHA has a wide array of tools to detect whether or not the user is an actual human (of which not all are known, as far as I’m aware.) It looks at things like how you move your mouse, or how you type, but also your cached browsing history/cookies to see if you have been acting “human” on the internet (browsing social media, reading the news, researching black market kidney prices).</p>
+
+<p>Without more advanced methods, bots usually type out letters in perfect time increments, or move the mouse to a certain location at a perfectly constant speed and in a linear direction. For a human, it would be impossible to type out a word with exact 10ms increments between keystrokes, or navigate a mouse in a perfectly straight line.</p>
+
+<p>The humorously morbid picture above displays the old version of reCAPTCHA, with the distorted letters–these are obselete, since they can be solved automatically with around 99.8% accuracy. You will recognize the new version as looking something like this.</p>
+
+<p align="middle"><img src="https://i.imgur.com/zOzcQgq.jpg" alt="Captchaexample" /></p>
+<p style="color:gray; font-size: 80%; text-align: center;">Modern reCAPTCHA</p>
+
+<p>The unchecked box on the upper left is what everyone sees before attempting to solve a CAPTCHA. When you attempt to click it, one of two things will happen:</p>
+
+<ul>
+  <li>
+    <p>If CAPTCHA has seen into your past, and determined that your behavious was “human” enough, you might be lucky enough to get a checkmark straight away, without needing to solve a puzzle.</p>
+  </li>
+  <li>
+    <p>If CAPTCHA doesn’t know you well, or thinks you are behaving like a bot, it will ask you to identify some  objects from random google maps photos. This puzzle is very difficult to solve automatically, since it would require genuine image recognition (seeing as how the pictures are taken from streetview, and not stored anywhere else online).</p>
+  </li>
+</ul>
+
+<p>Given this foolproof detection system, surely this is a bust?</p>
+
+<p align="middle"><img src="https://i.imgur.com/HfhUyEr.jpg" alt="slayerfan" /></p>
+<p style="color:gray; font-size: 80%; text-align: center;">A typical Slayer fan, deep in thought.</p>
+
+<h2 id="speech-to-text-solver">Speech-to-Text Solver</h2>
+
+<p>The industrious people who keep themselves busy with this sort of thing are remarkably crafty, and always coming up with new and innovative solutions to spoof bot-detection systems. One such system, that I didn’t have the time to test, but would love to give a shot sometime in the future, involves taking advantage of the visually impaired assistance offered with the image recognition puzzle.</p>
+
+<p>Note the little headphones icon at the bottom of the image recognition puzzle–this allows for visually impaired individuals to complete a speech-to-text puzzle instead, typing out an audio phrase that your computer spits out.</p>
+
+<p class="lead" width="100px" align="middle"><img src="https://i.imgur.com/GTEyQoD.png" alt="Audiocaptcha" /></p>
+<p style="color:gray; font-size: 80%; text-align: center;">Audio solve</p>
+
+<p>The workaround, based on <a href="https://www.reddit.com/r/Python/comments/8oqp7v/hey_i_made_a_google_recaptcha_solver_bot_too/">this</a> reddit post, involves automatically downloading the mp3 file of the audio, running it through a speech-to-text API (such as IBM’s Watson s-t-t tool), and regurgitating the appropriate text.</p>
+
+<p>Unfortunately, it’s not as simple as it sounds–if CAPTCHA doesn’t believe your actions to have been human, it will reject your request to listen to the audio. You need to first convince it that your recent behaviour is human-like before you can even request to solve it this way. It would be interesting to test this to see if this still works, that being said, word on the street is that the Google-ites are hard at work on the latest version of CAPTCHA that will bring all botters to their knees!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>All in all, this was a neat project to get back into python, as well as learn a little bit about how bot detection works. Even though this was a completely hypothetical application, I’m sure that the Selenium methods used here could be very useful for other applications where browser automation is required.</p>
+
+<p>As for Slayer being more prominent in the top 2000, perhaps we should start a political movement instead. Alternatively, we could start some commercial movement in a Bangladeshi click-farm?</p>
+
+<p>Until next year!</p>
+
+  
+
+</article>
 
 
+  <hr class="dingbat" />
+
+
+
+
+
+
+  <aside class="author" role="complementary">
+    <div class="author">
+  
+    
+  
+
+  
+
+  <img
+    src="https://placehold.it/128x128"
+    class="me"
+    alt="Bart Timmer"
+    srcset="https://placehold.it/128x128 1x,https://placehold.it/256x256 2x"
+    
+  />
+
+
+  
+
+  <h2 class="page-title hr">
+    About
+  </h2>
+
+  <p>I am a 25 year old economics student, and hobbyist in many things. This page documents some of my projects, activities
+and things I generally find interesting to write about. If you have any questions or inquiries, feel free to email me.</p>
+
+
+  
+    <div class="sidebar-social">
+      <span class="sr-only">Social:</span>
+<ul>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://github.com/denzilly" title="GitHub">
+    <span class="icon-github"></span>
+    <span class="sr-only">GitHub</span>
+  </a>
+</li>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:btimmer313@gmail.com" title="Email">
+    <span class="icon-mail"></span>
+    <span class="sr-only">Email</span>
+  </a>
+</li>
+
+  
+
+  
+
+  
+</ul>
+
+    </div>
+  
+</div>
+
+  </aside>
+
+
+
+
+
+<aside class="related" role="complementary">
+  <h2 class="hr">Related Posts</h2>
+
+  <ul class="related-posts">
+    
+      
+      
+      
+        
+          
+          
+        
+        
+          
+
+
+<li class="h4">
+  <a href="/2018/12/22/Slayerpart2/" data-flip="title">
+    <span>Slaying the Top 2000 Part 2: Names and Emails</span>
+  </a>
+  <small><time datetime="2018-12-22T00:00:00+01:00">
+    22 Dec 2018
+  </time></small>
+</li>
+
+        
+      
+        
+        
+          
+
+
+<li class="h4">
+  <a href="/2018/12/08/Slayer/" data-flip="title">
+    <span>Slaying the Top 2000: Part 1</span>
+  </a>
+  <small><time datetime="2018-12-08T00:00:00+01:00">
+    08 Dec 2018
+  </time></small>
+</li>
+
+        
+      
+    
+  </ul>
+</aside>
 
 
 
@@ -197,7 +427,7 @@ Powered by Hydejack v6.6.1 <https://qwtel.com/hydejack/>
   </div>
   <div id="_yDrawer">
   <div id="_sidebar" class="sidebar">
-    <div class="sidebar-bg" style="background-color:#268bd2;background-image:url(data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==)"></div>
+    <div class="sidebar-bg" style="background-color:#4f86aa;background-image:url(/assets/img/nap.png)"></div>
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h1><a id="_title" href="/">Bart Timmer</a></h1>
