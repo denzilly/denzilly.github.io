@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://denzilly.github.io/tag/hyde/</loc>
-<lastmod>2019-01-17T12:31:15+01:00</lastmod>
+<lastmod>2019-04-02T13:29:37+02:00</lastmod>
 </url>
 <url>
 <loc>https://denzilly.github.io/tag/hydejack/</loc>
-<lastmod>2019-01-17T12:31:15+01:00</lastmod>
+<lastmod>2019-04-02T13:29:37+02:00</lastmod>
 </url>
 <url>
 <loc>https://denzilly.github.io/2018/11/30/origins/</loc>
@@ -27,6 +27,18 @@
 <url>
 <loc>https://denzilly.github.io/2019/01/14/marssurvival/</loc>
 <lastmod>2019-01-14T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://denzilly.github.io/2019/01/22/pimotor/</loc>
+<lastmod>2019-01-22T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://denzilly.github.io/2019/01/28/Myanmarmetals/</loc>
+<lastmod>2019-01-28T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://denzilly.github.io/2019/02/02/threecardmonte/</loc>
+<lastmod>2019-02-02T00:00:00+01:00</lastmod>
 </url>
 <url>
 <loc>https://denzilly.github.io/licenses/Apache-2.0/</loc>
@@ -65,7 +77,10 @@
 <loc>https://denzilly.github.io/assets/bower_components/html5shiv/MIT%20and%20GPL2%20licenses/</loc>
 </url>
 <url>
+<loc>https://denzilly.github.io/blog/page-2/</loc>
+</url>
+<url>
 <loc>https://denzilly.github.io/assets/icomoon/demo.html</loc>
-<lastmod>2018-11-28T22:22:17+01:00</lastmod>
+<lastmod>2019-04-01T11:21:59+02:00</lastmod>
 </url>
 </urlset>

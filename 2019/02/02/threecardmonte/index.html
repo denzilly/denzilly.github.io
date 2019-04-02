@@ -31,29 +31,26 @@ Powered by Hydejack v6.6.1 <https://qwtel.com/hydejack/>
 
 
 
-  <title>Slaying the Top 2000: Part 1 &middot; Bart Timmer</title>
+  <title>Riddle: Three Deck Monté &middot; Bart Timmer</title>
 
 
 
 <meta name="description" content="
-Photo credit: Fred Pessaro
-What if it were possible to (hypothetically) overthrow the top 2000 using a couple of python scripts running in tandem, and in doing so start the new year off with something different?
+Never trust a man in a tracksuit.
 
 ">
 
 
 
 
-<link rel="canonical" href="https://denzilly.github.io/2018/12/08/Slayer/">
+<link rel="canonical" href="https://denzilly.github.io/2019/02/02/threecardmonte/">
 
 <link rel="alternate" type="application/atom+xml" title="Bart Timmer Feed" href="https://denzilly.github.io/feed.xml">
 
 
-  <link rel="prev" href="https://denzilly.github.io/2018/11/30/origins/">
+  <link rel="prev" href="https://denzilly.github.io/2019/01/28/Myanmarmetals/">
 
 
-
-  <link rel="next" href="https://denzilly.github.io/2018/12/22/Slayerpart2/">
 
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -166,16 +163,16 @@ What if it were possible to (hypothetically) overthrow the top 2000 using a coup
     <main id="_main" class="content" role="main" data-color="#4f86aa" data-image="/assets/img/nap.png">
       
 
-<article id="post-2018/12/08/Slayer" class="post" role="article">
+<article id="post-2019/02/02/threecardmonte" class="post" role="article">
   <header>
     <h1 class="post-title">
       
-        Slaying the Top 2000: Part 1
+        Riddle: Three Deck Monté
       
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2018-12-08T00:00:00+01:00">08 Dec 2018</time>
+      <time datetime="2019-02-02T00:00:00+01:00">02 Feb 2019</time>
       
 
 
@@ -198,7 +195,7 @@ What if it were possible to (hypothetically) overthrow the top 2000 using a coup
 
 
 
-on <span>Programming</span>, <span>Music</span>
+on <span>Programming</span>
 
     </p>
 
@@ -209,135 +206,62 @@ on <span>Programming</span>, <span>Music</span>
   </header>
 
   
-    <p align="middle"><img src="https://i.imgur.com/pORSkk1.jpg" alt="Tom Araya" /></p>
-<p style="color: gray; font-size: 80%; text-align: center;">Photo credit: <a href="https://www.instagram.com/jackpotplus/?hl=en">Fred Pessaro</a></p>
-<p>What if it were possible to (hypothetically) overthrow the top 2000 using a couple of python scripts running in tandem, and in doing so start the new year off with something different?</p>
+    <p align="middle"><img src="https://i.imgur.com/37bNTq2.jpg" alt="three-card-monte" /></p>
+<p><em>Never trust a man in a tracksuit.</em></p>
 
-<p>For nearly 20 years now, the NPO2’s top 2000 marathon radio program has been a staple of a Dutch new year’s eve. Remarkably,
-last year’s edition was listened to by <strong>11.3 million</strong> people, or some 76% of the population aged 10 or older. In comparison, the King’s 2017 christmas address drew a mere million viewers.</p>
+<p style="color: gray; font-size: 80%; text-align: center;">This is another solution attempt to a riddle originally posted on <a href="https://FiveThirtyEight.com">FiveThirtyEight</a> <a href="https://fivethirtyeight.com/features/can-you-escape-a-maze-without-walls/">here</a>. This time, about a three-<em>deck</em>-monte problem. Image credits to the painter of the above work, <a href="http://www.maxginsburg.com/">Max Ginsburg</a> who does some excellent job of capturing life in New York City over the course of the last decades.</p>
 
-<p align="middle"><img src="https://i.imgur.com/yC3C4f6.jpg" alt="Willem" /></p>
-<p style="color:gray; font-size: 80%; text-align: center;"><em>Unimpressed</em></p>
+<h3 id="the-premise">The Premise</h3>
 
-<p>The mere suggestion of manipulating the results of this list drew a good friend to describe it as a sacred national institution, and that anything of the sort would be akin to high treason.</p>
+<p>We are trying to figure out the odds that we’ll win against a crafty hustler, who, for the sake of convenience, we are going to name Monté.</p>
 
-<p>Don’t get me wrong, the idea behind the top 2000 is pretty compelling and wholesome, but to be frank, the top of this list has met with little variation since it’s inception. Indeed, anyone who knows anything about this list, knows that Queen’s <em>Bohemian Rhapsody</em> has been in the number 1 spot almost every single time, otherwise taking second place. This being the crown jewel of repetition, the top 10 is otherwise populated by songs that you also loved to hear, the first 14 times you heard them. Such hotel-lobby bangers as <em>Hotel California</em>, <em>Piano Man</em>, and <em>November Rain</em> all tend to come back, year after year.</p>
-
-<p>Enter Slayer. A band whose reputation precedes it as one of the heaviest, fastest, and most sonically abraisive acts in modern music. Celebrated by metalheads of all cultures and origins as one of the groups to have established the thrash metal movement, their music has inspired an entire generation of musicians, and united lovers of heavy music all over the globe.</p>
-
-<p>Why not try and take the #1 spot away from Freddie, and see if we could celebrate everything Slayer has done in the year that they choose to hang up their guitars?</p>
-
-<h2 id="goals-and-requirements">Goals and Requirements</h2>
-
-<p>The plan had a simple goal: vote as many times as <del>humanly</del> possible for the Slayer song “Angel of Death”, with the hope of cracking the top 10. Since time is short, and I’m not completely aware of the internal anti-botting measures in place on the voting website, I decided to use the <a href="https://www.seleniumhq.org/">Selenium</a> web-driver to autonomously steer a  browser into doing my bidding, and enter information into the fields of my choosing. The main goal of this project was to help me brush up on a bit of python, since actually putting this into action (god forbid it worked) would be a gross violation of the ToC and possibly illegal.</p>
-
-<p>The top 2000 voting schema works as follows:</p>
-
-<ol>
-  <li>Vote for a minimum of 5 songs of your choosing</li>
-  <li>Enter your motivation for choosing said songs (optional)</li>
-  <li>Enter your full name and e-mail address</li>
-  <li>Accept the ToC and complete a reCAPTCHA</li>
-</ol>
-
-<p>At this point, the first challenges present themselves.</p>
+<p>Monte is taking bets at his upturned microwave box, for a little game he has designated three-deck-monte. It goes as follows:</p>
 
 <ul>
-  <li>We need to vote for 4 other songs, if we choose the same ones each time, then they will get an equal number of votes. Also, we should probably randomize Slayer’s position in the order to be more inconspicuous.</li>
-  <li>We need a bunch of generic names, as well as email addresses</li>
-  <li>We need to find a way to circumvent the CAPTCHA</li>
-  <li>The script needs to execute in as little time as possible, such that it can complete as often as possible.</li>
-</ul>
-
-<p>First off though, we need to set up the webdriver.</p>
-
-<h2 id="set-up">Set-up</h2>
-
-<p>To get started, we imported the relevant packages and initialised the webdriver to work with firefox.</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
-
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-
-
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://stem.nporadio2.nl/top2000/1"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>The Selenium webdriver allows you to call all sorts of actions on elements on a webpage. In order to do this, you need to provide it with the location of the element that you want to manipulate. This can be by searching through HTML tags based on class or id, but I have found using XPath to be the quickest for the selection of specific elements on a page.</p>
-
-<p>To find the XPath of an object on a webpage, simply inspect it in your browser. Firefox and Chrome both provide a handy copy XPath option that allows you to jam it directly into a <em>find_element_by_xpath</em> in your code. As an example, clicking a button would look something like this:</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s">"XPATH_TO_BUTTON"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h2 id="voting--selecting-songs">Voting &amp; Selecting songs</h2>
-
-<p>The initial voting procedure is relatively simple–we are required to select a minimum of 5 songs from an interactive applet. The window has a search field, as well as a random selection of popular choices that populates the search results area when no query is entered.</p>
-
-<p>This essentially comes down to instructing Selenium to manipulate the browser automatically, in the same way that a ‘real’ voter would otherwise do this by manually. We want to vote for the minimum 5 songs, of which one will be <em>Angel of Death</em>.</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Voting
-</span>
-<span class="c1">#Randomly select position of slayer
-</span>  <span class="n">position</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-
-  <span class="k">print</span><span class="p">(</span><span class="s">"Position is "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">position</span><span class="p">))</span>   
-  <span class="c1">#Randomised position of slayer song in the list
-</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
-      <span class="c1">#Vote for Slayer
-</span>      <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">position</span><span class="p">:</span>
-          <span class="c1">#select field and search slayer if position matches x
-</span>          <span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"window.scrollTo(0, 0)"</span><span class="p">)</span>
-          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wtl</span><span class="p">)</span>
-          <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="n">textentry</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">"slayer"</span><span class="p">)</span>
-          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wtl</span><span class="p">)</span>
-          <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="n">slayerbtn</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wtl</span><span class="p">)</span>
-
-          <span class="c1">#clear the search field to return the list of default songs
-</span>          <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="n">textentry</span><span class="p">)</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wtl</span><span class="p">)</span>
-
-      <span class="c1">#Vote for random song in top of list
-</span>      <span class="k">else</span><span class="p">:</span>
-          <span class="n">currentsong</span> <span class="o">=</span> <span class="s">"/html/body/div[1]/div/div/div[3]/div[2]/div/ul/div/div/li[</span><span class="si">%</span><span class="s">s]/div/div/div/div/div[3]/button[2]"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">),)</span>
-
-          <span class="c1">#if its too far down the list, scroll it into view
-</span>          <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
-              <span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"window.scrollTo(0, 500)"</span><span class="p">)</span>
-          <span class="c1">#Vote for the song
-</span>          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wts</span><span class="p">)</span>
-          <span class="c1">#vote for a default song
-</span>          <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="n">currentsong</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-          <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wts</span><span class="p">)</span>
-          <span class="k">print</span><span class="p">(</span><span class="s">"vote </span><span class="si">%</span><span class="s">s was cast"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,))</span>
-</code></pre></div></div>
-
-<p>Some notes on this:</p>
-<ul>
-  <li>
-    <p>We need to vote for 4 other songs–obviously not the same ones every time! Luckily, the list of songs that populate the search result field when the search bar is empty seem to be relatively random (or at least don’t seem to repeat very often). As such, we can simply choose 4 of these every time to fill out our minimum 5 votes.</p>
-  </li>
-  <li>
-    <p>You will notice many blocks in the code below containing <em>time.sleep(wtl)</em> or <em>time.sleep(wts)</em>. This is a simple function that allows me to tell the browser to wait for a predetermined amount of time. In this case, I have wtl and wts (wait-long and short) set to 1.5 and 0.7 seconds respectively. This is sometimes necessary to allow all elements on a page to load, for example after searching for a song or clicking through to the next form. There are far cleaner ways of doing this, but I was in a hurry to try and get this together in time!</p>
-  </li>
-  <li>
-    <p>It might seem somewhat suspicious if our Slayer song comes in the same position (of the 5 songs) each time we vote. Even though they are not ranked, it might alleviate suspicion if it isn’t in position <em>x</em> each time. The beginning of the function generates a random integer <em>position</em> between 1 and 5 inclusive, which will denote the position of <em>Angel of Death</em> in our 5 songs. The function then loops through possible positions, either voting for <em>Angel of Death</em> or one of the default songs from the list.</p>
-  </li>
-  <li>
-    <p>I have pasted all of the necessary XPATHs into a neat little block elsewhere at the top of my code and stored them as strings. These have been referenced in the find_elment calls (e.g. textentry, slayerbtn)</p>
+  <li>There are 3 decks of cards, each with 12 cards.</li>
+  <li>The 12 cards are split into 3 sets of 4 with the same value.</li>
+  <li>The player chooses a deck first, upon which Monté will choose a deck.</li>
+  <li>Thus commences the game, similar to <em>war</em>:
+    <ul>
+      <li>Each player draws a card at random from his/her deck.</li>
+      <li>Player who draws the highest card (ace-high) gets a point.</li>
+      <li>First player to 5 wins, takes home the presidents.</li>
+    </ul>
   </li>
 </ul>
 
-<p>This is essentially how the voting part of the webdriver works. In the <a href="https://denzilly.github.io/2018/12/22/Slayerpart2/">next installment</a>, we will look at how to generate names and emails, as well as plans for the future!</p>
+<p>The decks are:</p>
+
+<ul>
+  <li>Red Deck: 4 Aces, 4 Nines, 4 Sevens</li>
+  <li>Blue Deck: 4 Kings, 4 Jacks, 4 Sixes</li>
+  <li>Black Deck: 4 Queens, 4 Tens, 4 Eights</li>
+</ul>
+
+<h3 id="setting-up-the-problem">Setting up the problem</h3>
+
+<p>There are a key elements of this problem to break down, and that end up drastically shifting the favour in Monté’s direction.</p>
+
+<h4 id="all-decks-are-not-equal">All decks are not equal</h4>
+
+<p>Each draw of two cards has 9 possible outcomes. The fact that this total is odd, implies that the chance of success is always stacked in one player’s favor.
+Tabulating possible outcomes reveals that the decks are selected very specifically, such that we end up with a sort-of  “rock-paper-scissors” hierarchy between the decks.</p>
+
+<p>Each card is capable of being superior to either 0, 1, 2, or 3 of the possible cards drawn from the opponent’s chosen deck. Adding these up reveals the relative matchup in terms of probability of success on the first draw. The chart below shows potential matchups based on deck choices. It is quickly apparent that certain deck choices (responses from Monté), are better than others, and that there is a clear best response deck to each deck chosen by the player. These are outlined in red (note that W/L is from the player’s perspective, so it is in Monté’s interest to have more Ls).</p>
+
+<p align="middle"><img src="https://i.imgur.com/wrCC2B6.png" alt="Best-Responses" /></p>
+<p>Monté’s best responses highlighted to each deck choice are outlined in red. W/L is shown from Player’s perspective.</p>
+
+<h3 id="solution-attempt">Solution attempt</h3>
+
+<p>Similar to riddles we’ve solved in the past, this solution attempt is based around simply simulating the game a significant number of times in order to estimate the chance that one player will win.</p>
+
+<p>At 1 million iterations, we estimate the player to win 298027 times. We thus estimate the victory probability to be <code class="MathJax_Preview">29.8027% \pm 0.00118</code><script type="math/tex">29.8027% \pm 0.00118</script>  with a 99% confidence interval.</p>
+
+<p align="middle"><img src="https://i.imgur.com/t0skFB5.png" alt="Win-Probability" /></p>
+<p>Estimating the probability of victory.</p>
+
+<p>For the full code, as well as a snippet to generate the graph, see my <a href="https://github.com/denzilly/riddles">github page</a>.</p>
 
   
 
@@ -452,21 +376,8 @@ and things I generally find interesting to write about. If you have any question
       
       
         
-        
           
-
-
-<li class="h4">
-  <a href="/2019/02/02/threecardmonte/" data-flip="title">
-    <span>Riddle: Three Deck Monté</span>
-  </a>
-  <small><time datetime="2019-02-02T00:00:00+01:00">
-    02 Feb 2019
-  </time></small>
-</li>
-
-        
-      
+          
         
         
           
@@ -501,6 +412,19 @@ and things I generally find interesting to write about. If you have any question
       
         
         
+          
+
+
+<li class="h4">
+  <a href="/2019/01/14/marssurvival/" data-flip="title">
+    <span>Riddle: Surviving on Mars</span>
+  </a>
+  <small><time datetime="2019-01-14T00:00:00+01:00">
+    14 Jan 2019
+  </time></small>
+</li>
+
+        
       
     
   </ul>
@@ -516,7 +440,7 @@ and things I generally find interesting to write about. If you have any question
   <div id="disqus_thread"></div>
 
   <script>
-    !function(s,i){function e(e){var t=s.pageYOffset||i.body.scrollTop;s.DISQUS&&!s._disqusThis&&!s._disqusFirst&&t+s.innerHeight>=s._disqusThreadOffsetTop&&(s._disqusThis=!0,s.DISQUS.reset({reload:!0,config:d}))}var d=function(){this.page.title="Slaying the Top 2000: Part 1",this.page.identifier="/2018/12/08/Slayer",this.page.url="https://denzilly.github.io/2018/12/08/Slayer/"};s._disqusFirst=void 0===s._disqusFirst||s._disqusFirst,s._disqusLoading=void 0!==s._disqusLoading&&s._disqusLoading,s._disqusThis=!1,s._disqusThreadOffsetTop=i.getElementById("disqus_thread").offsetTop,s._disqusLoading?s._disqusFirst=!1:(s._disqusLoading=!0,loadJSDeferred("//bart-timmer.disqus.com/embed.js"),s.addEventListener?s.addEventListener("scroll",e,{passive:!0}):s.attachEvent?s.attachEvent("onscroll",e):s.onscroll=e)}(window,document);
+    !function(s,i){function e(e){var t=s.pageYOffset||i.body.scrollTop;s.DISQUS&&!s._disqusThis&&!s._disqusFirst&&t+s.innerHeight>=s._disqusThreadOffsetTop&&(s._disqusThis=!0,s.DISQUS.reset({reload:!0,config:d}))}var d=function(){this.page.title="Riddle: Three Deck Monté",this.page.identifier="/2019/02/02/threecardmonte",this.page.url="https://denzilly.github.io/2019/02/02/threecardmonte/"};s._disqusFirst=void 0===s._disqusFirst||s._disqusFirst,s._disqusLoading=void 0!==s._disqusLoading&&s._disqusLoading,s._disqusThis=!1,s._disqusThreadOffsetTop=i.getElementById("disqus_thread").offsetTop,s._disqusLoading?s._disqusFirst=!1:(s._disqusLoading=!0,loadJSDeferred("//bart-timmer.disqus.com/embed.js"),s.addEventListener?s.addEventListener("scroll",e,{passive:!0}):s.attachEvent?s.attachEvent("onscroll",e):s.onscroll=e)}(window,document);
 
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
