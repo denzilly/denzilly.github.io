@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div id="wrapper">
+    <header id="header">
+        <h1><a href="{{ site.baseurl }}/index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/index.html">Photos&nbsp;&nbsp;<i class="fa fa-camera"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main" class="blog-content">
+        <h1>Blog</h1>
+        <div class="blog-list">
+            {% for post in site.posts %}
+            <article class="blog-item">
+                <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+                <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
